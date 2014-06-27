@@ -75,6 +75,7 @@ your brand:
 # Developed By
 
  * Andreas Stuetz - <andreas.stuetz@gmail.com>
+ * Benjamin Dobell - <support@glassechidna.com.au> (Extended tab appearance capabilities only)
 
 
 ### Credits
@@ -85,6 +86,7 @@ your brand:
 # License
 
     Copyright 2013 Andreas Stuetz
+    Copyright 2013 Benjamin Dobell
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
