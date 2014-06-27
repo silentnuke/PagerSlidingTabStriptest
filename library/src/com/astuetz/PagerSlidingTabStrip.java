@@ -22,6 +22,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
@@ -67,6 +68,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private final PageListener pageListener = new PageListener();
     public OnPageChangeListener delegatePageListener;
+
+    private final PagerAdapterObserver adapterObserver = new PagerAdapterObserver();
 
     private LinearLayout tabsContainer;
     private ViewPager pager;
@@ -194,6 +197,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         }
 
         pager.setOnPageChangeListener(pageListener);
+
+        pager.getAdapter().registerDataSetObserver(adapterObserver);
+        adapterObserver.setAttached(true);
 
         notifyDataSetChanged();
     }
@@ -469,6 +475,28 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         rectPaint.setColor(underlineColor);
         canvas.drawRect(0, height - underlineHeight, tabsContainer.getWidth(), height, rectPaint);
 
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (pager != null) {
+            if (!adapterObserver.isAttached()) {
+                pager.getAdapter().registerDataSetObserver(adapterObserver);
+                adapterObserver.setAttached(true);
+            }
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (pager != null) {
+            if (adapterObserver.isAttached()) {
+                pager.getAdapter().unregisterDataSetObserver(adapterObserver);
+                adapterObserver.setAttached(false);
+            }
+        }
     }
 
     private class PageListener implements OnPageChangeListener {
@@ -854,4 +882,21 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         };
     }
 
+    private class PagerAdapterObserver extends DataSetObserver {
+
+        private boolean attached = false;
+
+        @Override
+        public void onChanged() {
+            notifyDataSetChanged();
+        }
+
+        public void setAttached(boolean attached) {
+            this.attached = attached;
+        }
+
+        public boolean isAttached() {
+            return attached;
+        }
+    }
 }
