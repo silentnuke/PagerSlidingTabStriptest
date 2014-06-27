@@ -163,7 +163,7 @@ public class QuickContactFragment extends DialogFragment {
         public Object instantiateItem(ViewGroup container, int position) {
             // looks a little bit messy here
             TextView v = new TextView(getActivity());
-            v.setBackground(new ColorDrawable(getResources().getColor(R.color.background_window)));
+            v.setBackgroundColor(getResources().getColor(R.color.background_window));
             v.setText("PAGE " + (position + 1));
             final int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources()
                     .getDisplayMetrics());

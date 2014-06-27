@@ -35,7 +35,8 @@
             android:layout_weight="1"
             android:background="#FF666666"
             android:onClick="onColorClicked"
-            android:tag="#FF666666" />
+            android:tag="#FF666666"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:layout_width="0dip"
@@ -44,7 +45,8 @@
             android:layout_weight="1"
             android:background="#FF96AA39"
             android:onClick="onColorClicked"
-            android:tag="#FF96AA39" />
+            android:tag="#FF96AA39"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:layout_width="0dip"
@@ -53,7 +55,8 @@
             android:layout_weight="1"
             android:background="#FFC74B46"
             android:onClick="onColorClicked"
-            android:tag="#FFC74B46" />
+            android:tag="#FFC74B46"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:layout_width="0dip"
@@ -62,7 +65,8 @@
             android:layout_weight="1"
             android:background="#FFF4842D"
             android:onClick="onColorClicked"
-            android:tag="#FFF4842D" />
+            android:tag="#FFF4842D"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:layout_width="0dip"
@@ -71,7 +75,8 @@
             android:layout_weight="1"
             android:background="#FF3F9FE0"
             android:onClick="onColorClicked"
-            android:tag="#FF3F9FE0" />
+            android:tag="#FF3F9FE0"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:layout_width="0dip"
@@ -80,7 +85,8 @@
             android:layout_weight="1"
             android:background="#FF5161BC"
             android:onClick="onColorClicked"
-            android:tag="#FF5161BC" />
+            android:tag="#FF5161BC"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
 </RelativeLayout>

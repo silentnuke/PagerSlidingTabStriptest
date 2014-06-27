@@ -16,6 +16,8 @@
 
 package com.astuetz.viewpager.extensions.sample;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -88,7 +90,8 @@ public class MainActivity extends FragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void changeColor(int newColor) {
+    @SuppressLint("NewApi")
+    private void changeColor(int newColor) {
 
 		tabs.setIndicatorColor(newColor);
 
@@ -157,7 +160,8 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private Drawable.Callback drawableCallback = new Drawable.Callback() {
-		@Override
+		@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+        @Override
 		public void invalidateDrawable(Drawable who) {
 			getActionBar().setBackgroundDrawable(who);
 		}

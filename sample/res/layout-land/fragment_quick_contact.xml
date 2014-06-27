@@ -12,7 +12,8 @@
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/center"
         android:scaleType="centerCrop"
-        android:src="@drawable/contact" />
+        android:src="@drawable/contact"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +25,7 @@
         android:paddingBottom="14dip"
         android:paddingLeft="8dip"
         android:paddingTop="14dip"
-        android:text="Quick Contact"
+        android:text="@string/quick_contact"
         android:textColor="#FFFFFFFF"
         android:textSize="18sp" />
 
